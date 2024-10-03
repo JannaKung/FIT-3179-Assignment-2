@@ -1,0 +1,97 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Australia's Total Energy Consumption Overview (2011-2022)",
+  "width": 300,
+  "height": 250,
+  "description": "Australia's Total Energy Consumption Overview",
+  "data": {
+    "url": "https://raw.githubusercontent.com/JannaKung/FIT-3179-Homework-Week-10/refs/heads/main/data/End_use_of_industries.csv",
+    "format": {"type": "csv"}
+  },
+  "config": {
+    "title":{
+      "font":"Poppins"
+    },
+    "axis": {
+      "titleFont": "Poppins",
+      "labelFont": "Poppins"
+    },
+    "legend": {
+      "titleFont": "Poppins",
+      "labelFont":"Poppins"
+    }
+  },
+  "params": [
+    {
+      "name": "Year_selection",
+      "value": 2022,
+      "bind": {
+        "input": "range",
+        "min": 2011,
+        "max": 2022,
+        "step": 1,
+        "name": "Select Year: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "year(datum.Year) <= Year_selection"
+    }
+  ],
+  "selection": {
+    "sector_highlight": {
+      "type": "multi",
+      "fields": ["Energy Consumption Sectors"],
+      "bind": "legend"
+    }
+  },
+  "mark": {
+    "type": "line",
+    "point": true,
+    "tooltip": true
+  },
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "temporal",
+      "timeUnit": "year",
+      "title": "Year"
+    },
+    "y": {
+      "field": "Energy Consumption (PJ)",
+      "type": "quantitative",
+      "title": "Energy Consumption (PJ)"
+    },
+    "color": {
+      "field": "Energy Consumption Sectors",
+      "type": "nominal",
+      "title": "Sector"
+    },
+    "opacity": {
+      "condition": {
+        "selection": "sector_highlight",
+        "value": 0.8
+      },
+      "value": 0.2
+    },
+    "tooltip": [
+      {
+        "field": "Year",
+        "type": "temporal",
+        "timeUnit": "year",
+        "title": "Year"
+      },
+      {
+        "field": "Energy Consumption Sectors",
+        "type": "nominal",
+        "title": "Sector"
+      },
+      {
+        "field": "Energy Consumption (PJ)",
+        "type": "quantitative",
+        "title": "Energy Consumption (PJ)"
+      }
+    ]
+  }
+}
