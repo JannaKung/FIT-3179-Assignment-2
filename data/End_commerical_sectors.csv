@@ -1,97 +1,97 @@
 ﻿Sectors,Year,Energy Consumption (PJ)
-Commercial and Services (PJ),2011,598
-Construction (PJ),2011,145
-"Electricity, gas, water and waste services (PJ)",2011,79
-Households (PJ),2011,1025
-Manufacturing (PJ),2011,1234
-"Transport, storage and services (PJ)",2011,535
-"Agriculture, forestry and fishing (PJ)",2011,147
-Mining (PJ),2011,371
-Commercial and Services (PJ),2012,584
-Construction (PJ),2012,148
-"Electricity, gas, water and waste services (PJ)",2012,84
-Households (PJ),2012,1015
-Manufacturing (PJ),2012,1189
-"Transport, storage and services (PJ)",2012,581
-"Agriculture, forestry and fishing (PJ)",2012,168
-Mining (PJ),2012,421
-Commercial and Services (PJ),2013,578
-Construction (PJ),2013,158
-"Electricity, gas, water and waste services (PJ)",2013,75
-Households (PJ),2013,1025
-Manufacturing (PJ),2013,1155
-"Transport, storage and services (PJ)",2013,610
-"Agriculture, forestry and fishing (PJ)",2013,163
-Mining (PJ),2013,510
-Commercial and Services (PJ),2014,584
-Construction (PJ),2014,152
-"Electricity, gas, water and waste services (PJ)",2014,75
-Households (PJ),2014,1005
-Manufacturing (PJ),2014,1151
-"Transport, storage and services (PJ)",2014,594
-"Agriculture, forestry and fishing (PJ)",2014,161
-Mining (PJ),2014,508
-Commercial and Services (PJ),2015,570
-Construction (PJ),2015,123
-"Electricity, gas, water and waste services (PJ)",2015,90
-Households (PJ),2015,1020
-Manufacturing (PJ),2015,1107
-"Transport, storage and services (PJ)",2015,592
-"Agriculture, forestry and fishing (PJ)",2015,149
-Mining (PJ),2015,500
-Commercial and Services (PJ),2016,565
-Construction (PJ),2016,132
-"Electricity, gas, water and waste services (PJ)",2016,92
-Households (PJ),2016,1005
-Manufacturing (PJ),2016,1086
-"Transport, storage and services (PJ)",2016,584
-"Agriculture, forestry and fishing (PJ)",2016,156
-Mining (PJ),2016,543
-Commercial and Services (PJ),2017,559
-Construction (PJ),2017,141
-"Electricity, gas, water and waste services (PJ)",2017,85
-Households (PJ),2017,1026
-Manufacturing (PJ),2017,1087
-"Transport, storage and services (PJ)",2017,638
-"Agriculture, forestry and fishing (PJ)",2017,151
-Mining (PJ),2017,548
-Commercial and Services (PJ),2018,584
-Construction (PJ),2018,150
-"Electricity, gas, water and waste services (PJ)",2018,87
-Households (PJ),2018,1025
-Manufacturing (PJ),2018,1039
-"Transport, storage and services (PJ)",2018,686
-"Agriculture, forestry and fishing (PJ)",2018,163
-Mining (PJ),2018,566
-Commercial and Services (PJ),2019,618
-Construction (PJ),2019,140
-"Electricity, gas, water and waste services (PJ)",2019,89
-Households (PJ),2019,1016
-Manufacturing (PJ),2019,1050
-"Transport, storage and services (PJ)",2019,673
-"Agriculture, forestry and fishing (PJ)",2019,143
-Mining (PJ),2019,614
-Commercial and Services (PJ),2020,608
-Construction (PJ),2020,148
-"Electricity, gas, water and waste services (PJ)",2020,94
-Households (PJ),2020,985
-Manufacturing (PJ),2020,1048
-"Transport, storage and services (PJ)",2020,619
-"Agriculture, forestry and fishing (PJ)",2020,142
-Mining (PJ),2020,639
-Commercial and Services (PJ),2021,611
-Construction (PJ),2021,168
-"Electricity, gas, water and waste services (PJ)",2021,99
-Households (PJ),2021,950
-Manufacturing (PJ),2021,1032
-"Transport, storage and services (PJ)",2021,445
-"Agriculture, forestry and fishing (PJ)",2021,160
-Mining (PJ),2021,642
-Commercial and Services (PJ),2022,620
-Construction (PJ),2022,177
-"Electricity, gas, water and waste services (PJ)",2022,102
-Households (PJ),2022,913
-Manufacturing (PJ),2022,999
-"Transport, storage and services (PJ)",2022,512
-"Agriculture, forestry and fishing (PJ)",2022,175
-Mining (PJ),2022,647
+Agriculture,2011,147
+Manufacturing,2011,1234
+Mining,2011,371
+Utilities,2011,79
+Commercial,2011,598
+Construction,2011,145
+Households,2011,1025
+Transport,2011,535
+Agriculture,2012,168
+Manufacturing,2012,1189
+Mining,2012,421
+Utilities,2012,84
+Commercial,2012,584
+Construction,2012,148
+Households,2012,1015
+Transport,2012,581
+Agriculture,2013,163
+Manufacturing,2013,1155
+Mining,2013,510
+Utilities,2013,75
+Commercial,2013,578
+Construction,2013,158
+Households,2013,1025
+Transport,2013,610
+Agriculture,2014,161
+Manufacturing,2014,1151
+Mining,2014,508
+Utilities,2014,75
+Commercial,2014,584
+Construction,2014,152
+Households,2014,1005
+Transport,2014,594
+Agriculture,2015,149
+Manufacturing,2015,1107
+Mining,2015,500
+Utilities,2015,90
+Commercial,2015,570
+Construction,2015,123
+Households,2015,1020
+Transport,2015,592
+Agriculture,2016,156
+Manufacturing,2016,1086
+Mining,2016,543
+Utilities,2016,92
+Commercial,2016,565
+Construction,2016,132
+Households,2016,1005
+Transport,2016,584
+Agriculture,2017,151
+Manufacturing,2017,1087
+Mining,2017,548
+Utilities,2017,85
+Commercial,2017,559
+Construction,2017,141
+Households,2017,1026
+Transport,2017,638
+Agriculture,2018,163
+Manufacturing,2018,1039
+Mining,2018,566
+Utilities,2018,87
+Commercial,2018,584
+Construction,2018,150
+Households,2018,1025
+Transport,2018,686
+Agriculture,2019,143
+Manufacturing,2019,1050
+Mining,2019,614
+Utilities,2019,89
+Commercial,2019,618
+Construction,2019,140
+Households,2019,1016
+Transport,2019,673
+Agriculture,2020,142
+Manufacturing,2020,1048
+Mining,2020,639
+Utilities,2020,94
+Commercial,2020,608
+Construction,2020,148
+Households,2020,985
+Transport,2020,619
+Agriculture,2021,160
+Manufacturing,2021,1032
+Mining,2021,642
+Utilities,2021,99
+Commercial,2021,611
+Construction,2021,168
+Households,2021,950
+Transport,2021,445
+Agriculture,2022,175
+Manufacturing,2022,999
+Mining,2022,647
+Utilities,2022,102
+Commercial,2022,620
+Construction,2022,177
+Households,2022,913
+Transport,2022,512
