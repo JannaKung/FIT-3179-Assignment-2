@@ -1,0 +1,92 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Emoji Lollipop chart for energy consumption in 2022 by sector.",
+  "height": 500,
+  "width": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/JannaKung/FIT-3179-Assignment-2/refs/heads/main/data/End_commerical_sectors.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {
+      "lookup": "Sectors",
+      "from": {
+        "data": {
+          "values": [
+            {"name": "Agriculture", "emoji": "🌾"},
+            {"name": "Commercial", "emoji": "🏢"},
+            {"name": "Utilities", "emoji": "🏗️"},
+            {"name": "Construction", "emoji": "⚡"},
+            {"name": "Households", "emoji": "🏠"},
+            {"name": "Manufacturing", "emoji": "🏭"},
+            {"name": "Transport", "emoji": "🚚"},
+            {"name": "Mining", "emoji": "⛏️"}
+          ]
+        },
+        "key": "name",
+        "fields": ["emoji"]
+      }
+    },
+    {
+      "filter": "datum.Year == 2022"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "y": {
+          "field": "emoji",
+          "type": "nominal",
+          "title": null,
+          "axis": {
+            "labelPadding": 10
+          }
+        },
+        "x": {
+          "field": "Energy Consumption (PJ)",
+          "type": "quantitative",
+          "title": "Energy Consumption (PJ)"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 100,
+        "tooltip": true
+      },
+      "encoding": {
+        "y": {
+          "field": "emoji",
+          "type": "nominal",
+          "title" : "Sectors",
+          "axis": {
+            "labelPadding": 10,
+            "labelFontSize": 40
+        }},
+        "x": {
+          "field": "Energy Consumption (PJ)",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "Energy Consumption (PJ)",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [200,400,600,800,1000],
+            "range": ["#4575b4", "#91bfdb", "#fee08b", "#fdae61", "#d73027"]
+          }
+        },
+        "tooltip": [
+          {"field": "Sectors", "type": "nominal", "title": "Sector"},
+          {"field": "Energy Consumption (PJ)", "type": "quantitative", "title": "Energy Consumption (PJ)"}
+        ]
+      }
+    }
+  ]
+}
