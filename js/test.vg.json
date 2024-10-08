@@ -1,0 +1,131 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": 250,
+    "title": "Australia's Total Energy Consumption Overview (2011-2022)",
+    "data": {
+      "url": "https://raw.githubusercontent.com/JannaKung/FIT-3179-Homework-Week-10/refs/heads/main/data/End_use_of_industries.csv",
+      "format": {"type": "csv"}
+    },
+    "encoding": {
+      "x": {
+        "field": "Year",
+        "type": "temporal",
+        "timeUnit": "year",
+        "title": "Year"
+      },
+      "y": {
+        "field": "Energy Consumption (PJ)",
+        "type": "quantitative",
+        "title": "Energy Consumption (PJ)"
+      },
+      "color": {
+        "field": "Energy Consumption Sectors",
+        "type": "nominal",
+        "title": "Sector",
+        "legend": null
+      },
+      "opacity": {
+        "condition": {
+          "selection": "select",
+          "value": 1
+        },
+        "value": 0.2
+      }
+    },
+    "layer": [
+      {
+        "mark": "line"
+      },
+      {
+        "description": "transparent layer to make it easier to trigger selection",
+        "selection": {
+          "select": {
+            "type": "multi",
+            "on": "click",
+            "empty": "all",
+            "fields": ["Energy Consumption Sectors"]
+          }
+        },
+        "mark": {
+          "type": "line",
+          "point": true,
+          "strokeWidth": 8,
+          "stroke": "transparent"
+        },
+        "encoding": {
+          "tooltip": [
+            {
+              "field": "Year",
+              "type": "temporal",
+              "timeUnit": "year",
+              "title": "Year"
+            },
+            {
+              "field": "Energy Consumption Sectors",
+              "type": "nominal",
+              "title": "Sector"
+            },
+            {
+              "field": "Energy Consumption (PJ)",
+              "type": "quantitative",
+              "title": "Energy Consumption (PJ)"
+            }
+          ]
+        }
+      },
+      {
+        "encoding": {
+          "x": {
+            "aggregate": "max",
+            "field": "Year"
+          },
+          "y": {
+            "aggregate": {
+              "argmax": "Year"
+            },
+            "field": "Energy Consumption (PJ)"
+          }
+        },
+        "layer": [
+          {
+            "mark": {
+              "type": "circle"
+            }
+          },
+          {
+            "mark": {
+              "type": "text",
+              "align": "left",
+              "font": "Poppins",
+              "dx": 4
+            },
+            "encoding": {
+              "text": {
+                "field": "Energy Consumption Sectors",
+                "type": "nominal"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "config": {
+      "view": {
+        "stroke": null
+      },
+      "axis": {
+        "labelFont": "Poppins",
+        "titleFont": "Poppins"
+      },
+      "header": {
+        "labelFont": "Poppins",
+        "titleFont": "Poppins"
+      },
+      "title": {
+        "font": "Poppins",
+        "fontSize": 16,
+        "fontWeight": 600
+      }
+    }
+  }
