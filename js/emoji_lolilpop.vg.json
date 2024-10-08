@@ -7,7 +7,23 @@
     "url": "https://raw.githubusercontent.com/JannaKung/FIT-3179-Assignment-2/refs/heads/main/data/End_commerical_sectors.csv",
     "format": {"type": "csv"}
   },
+  "params": [
+    {
+      "name": "Year_selection",
+      "value": 2022,
+      "bind": {
+        "input": "range",
+        "min": 2011,
+        "max": 2022,
+        "step": 1,
+        "name": "Select Year: "
+      }
+    }
+  ],
   "transform": [
+    {
+      "filter": "datum.Year == Year_selection"
+    },
     {
       "lookup": "Sectors",
       "from": {
@@ -26,16 +42,13 @@
         "key": "name",
         "fields": ["emoji"]
       }
-    },
-    {
-      "filter": "datum.Year == 2022"
     }
   ],
   "layer": [
     {
       "mark": {
         "type": "rule",
-        "strokeWidth": 3
+        "strokeWidth": 2
       },
       "encoding": {
         "y": {
@@ -64,28 +77,52 @@
         "y": {
           "field": "emoji",
           "type": "nominal",
-          "title" : "Sectors",
+          "title": "Sectors",
           "axis": {
+            "title": "Sectors",
             "labelPadding": 10,
-            "labelFontSize": 40
-        }},
+            "labelFontSize": 30
+          }
+        },
         "x": {
           "field": "Energy Consumption (PJ)",
           "type": "quantitative"
         },
         "color": {
-          "field": "Energy Consumption (PJ)",
-          "type": "quantitative",
-          "scale": {
-            "type": "threshold",
-            "domain": [200,400,600,800,1000],
-            "range": ["#4575b4", "#91bfdb", "#fee08b", "#fdae61", "#d73027"]
-          }
+          "condition": {
+            "test": "datum.Sectors === 'Households'",
+            "value": "orange"
+          },
+          "value": "red"
         },
         "tooltip": [
           {"field": "Sectors", "type": "nominal", "title": "Sector"},
           {"field": "Energy Consumption (PJ)", "type": "quantitative", "title": "Energy Consumption (PJ)"}
         ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": -3,
+        "fontSize": 12,
+        "font": "Poppins"
+      },
+      "encoding": {
+        "text": {
+          "field": "Sectors",
+          "type": "nominal"
+        },
+        "x": {
+          "field": "Energy Consumption (PJ)",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "emoji",
+          "type": "nominal"
+        }
       }
     }
   ]

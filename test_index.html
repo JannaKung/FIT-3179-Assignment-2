@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Australia's Energy Growth</title>
+  <!-- Import Vega & Vega-Lite-->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,600&display=swap" rel="stylesheet">
+
+  <!-- CSS file -->
+  <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h1>Australia's Energy Journey: Balancing Non-Renewable and Renewable Sources</h1>
+        <p>Lorem ipsum dolor sit amet, eum dicta saperet instructior no, at sensibus complectitur per,
+          usu hinc augue ei. Ad amet homero evertitur mei. Posse quidam convenire ei mel. Quando regione eu eam, tota latine vocibus mei ad.
+          His ad hendrerit voluptatibus, mel et liber mollis, illud dicant scaevola pro ei. Ex pri quod dolore percipit.
+          Sea ne appetere imperdiet adipiscing.</p>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- map container -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div id="map-container"></div>
+        <p>Lorem ipsum dolor sit amet, eum dicta saperet instructior no, at sensibus complectitur per,
+          usu hinc augue ei. Ad amet homero evertitur mei. Posse quidam convenire ei mel. Quando regione eu eam, tota latine vocibus mei ad.
+          His ad hendrerit voluptatibus, mel et liber mollis, illud dicant scaevola pro ei. Ex pri quod dolore percipit.
+          Sea ne appetere imperdiet adipiscing.</p>
+      </div>
+    </div>
+
+    <!-- two-column layout for visualization and description -->
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <div id="vis-container"></div>
+      </div>
+      <div class="pure-u-1-2">
+        <div class="description description-right">
+          <h2>Australia's Energy Consumption Over Time</h2>
+          <p>The first column contains the visualization, and the second column contains text.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <script type="text/javascript">
+      var choropleth_map = "js/choropleth_map.vg.json";
+      var concat_graph = "js/concat_industries.vg.json";
+
+      // Embed the choropleth map
+      vegaEmbed('#map-container', choropleth_map, { "actions": false }).then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+
+      // Embed the stacked bar graph in the correct container
+      vegaEmbed('#vis-container', concat_graph, { "actions": false }).then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+    </script>
+
+  </div>
+</body>
+
+</html>
