@@ -50,7 +50,12 @@
               "domain": ["2011", "2022"],
               "range": ["#F6EACB", "#D1E9F6"]
             }
-          }
+          },
+          "tooltip": [
+          {"field": "Year", "title": "Year"},
+          {"field": "Energy Production (PJ)", "title": "Energy Production (PJ)"},
+          {"field": "Non-Renewables", "title": "Source"}
+        ]
         }
       }
     ]

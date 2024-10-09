@@ -1,0 +1,67 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/JannaKung/FIT-3179-Assignment-2/refs/heads/main/data/Renewable%20energy%20sources.csv",
+      "format": { "type": "csv" }
+    },
+    "layer": [
+      {
+        "mark": {
+          "type": "area",
+          "line": true,
+          "point": true,
+          "size": 2
+        },
+        "encoding": {
+          "x": { "field": "Year", "type": "ordinal"},
+          "y": { "field": "Energy Production (PJ)", "type": "quantitative" },
+          "color": {
+            "field": "Renewable sources",
+            "type": "nominal",
+            "legend": {"title": "Renewable sources"},
+            "scale": {
+              "domain": ["Hydro energy", "Solar energy", "Wind energy"],
+              "range": ["#91bfdb", "#fee08b", "#fdae61"]
+            }
+          },
+          "opacity": {
+            "condition": {
+              "test": "datum['Renewable sources'] == 'Household electricity use'",
+              "value": 0
+            },
+            "value": 1
+          },
+          "tooltip": [
+          {"field": "Year", "title": "Year"},
+          {"field": "Energy Production (PJ)", "title": "Energy Production (PJ)"},
+          {"field": "Renewable sources", "title": "Source"}
+        ]
+        }
+      },
+      {
+        "mark": {
+          "type": "line",
+          "point": true,
+          "color": "blue",
+          "size": 2
+        },
+        "encoding": {
+          "x": { "field": "Year", "type": "ordinal" },
+          "y": { "field": "Energy Production (PJ)", "type": "quantitative" },
+          "detail": { "field": "Renewable sources" },
+          "color": {
+            "condition": {
+              "test": "datum['Renewable sources'] == 'Household electricity use'",
+              "value": "#4682B4"
+            },
+            "value": null
+          },
+          "tooltip": [
+          {"field": "Year", "title": "Year"},
+          {"field": "Energy Production (PJ)", "title": "Energy Production (PJ)"},
+          {"field": "Renewable sources", "title": "Source"}
+        ]
+        }
+      }
+    ]
+  }
