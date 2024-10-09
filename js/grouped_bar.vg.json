@@ -1,23 +1,57 @@
 {
-    "$schema": "",
-    "data": {
-      "values": [
-        {"category":"A", "group": "x", "value":0.1},
-        {"category":"A", "group": "y", "value":0.6},
-        {"category":"A", "group": "z", "value":0.9},
-        {"category":"B", "group": "x", "value":0.7},
-        {"category":"B", "group": "y", "value":0.2},
-        {"category":"B", "group": "z", "value":1.1},
-        {"category":"C", "group": "x", "value":0.6},
-        {"category":"C", "group": "y", "value":0.1},
-        {"category":"C", "group": "z", "value":0.2}
-      ]
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 300,
+    "height": 250,
+    "config": {
+      "title": {
+        "font": "Poppins",
+        "fontSize": 20,
+        "anchor": "middle",
+        "offset": 15
+      },
+      "axis": {
+        "titleFont": "Poppins",
+        "labelFont": "Poppins"
+      },
+      "legend": {
+        "titleFont": "Poppins",
+        "labelFont": "Poppins"
+      }
     },
-    "mark": "bar",
-    "encoding": {
-      "x": {"field": "category"},
-      "y": {"field": "value", "type": "quantitative"},
-      "xOffset": {"field": "group"},
-      "color": {"field": "group"}
-    }
+    "hconcat": [
+      {
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "data": {
+          "url": "https://raw.githubusercontent.com/JannaKung/FIT-3179-Assignment-2/refs/heads/main/data/Non-renewable_production.csv",
+          "format": { "type": "csv" }
+        },
+        "mark": "bar",
+        "encoding": {
+          "x": {
+            "field": "Non-Renewables",
+            "type": "nominal",
+            "axis": {
+              "labelAngle": 14,
+              "labelAlign": "left"
+            }
+          },
+          "y": {
+            "field": "Energy Production (PJ)",
+            "type": "quantitative"
+          },
+          "xOffset": {
+            "field": "Year",
+            "type": "nominal"
+          },
+          "color": {
+            "field": "Year",
+            "type": "nominal",
+            "scale": {
+              "domain": ["2011", "2022"],
+              "range": ["#F6EACB", "#D1E9F6"]
+            }
+          }
+        }
+      }
+    ]
   }
