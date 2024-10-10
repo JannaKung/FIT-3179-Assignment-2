@@ -110,7 +110,7 @@
       }).catch(console.error);
 
       // Embed the industry graph in the correct container
-      vegaEmbed('#industry_chart', concat_graph).then(({ view }) => {
+      vegaEmbed('#industry_chart', concat_graph, { "actions": false }).then(({ view }) => {
         const selectYear = document.getElementById('Year_Selection');
 
         // Update the view when the dropdown value changes

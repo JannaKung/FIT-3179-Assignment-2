@@ -37,7 +37,8 @@
         },
         "y": {
           "field": "Energy Production (PJ)",
-          "type": "quantitative"
+          "type": "quantitative",
+          "axis": { "title": "Energy Production (PJ)" }
         },
         "xOffset": {
           "field": "Year",
@@ -79,7 +80,7 @@
             "color": {
               "field": "Renewable sources",
               "type": "nominal",
-              "legend": { "title": "Renewable sources" },
+              "legend": {"title": "Renewable sources"},
               "scale": {
                 "domain": ["Hydro energy", "Solar energy", "Wind energy"],
                 "range": ["#91bfdb", "#fee08b", "#fdae61"]
@@ -123,20 +124,26 @@
           "mark": {
             "type": "text",
             "align": "left",
-            "dx": 15,
-            "dy": -3,
+            "dx": 5,
+            "dy": -5,
             "fontSize": 12,
             "fontWeight": "bold"
           },
           "encoding": {
-            "x": { "aggregate": "max", "field": "Year", "type": "ordinal" },
-            "y": {
-              "field": "Energy Production (PJ)",
-              "type": "quantitative",
-              "aggregate": "max"
-            },
+            "x": { "field": "Year", "type": "ordinal","axis":{
+              "labelAngle":0,
+              "labelAlign": "center",
+              "grid": true,
+              "labels":false,
+              "ticks": true,
+              "tickMinStep": 1
+            }},
+            "y": { "field": "Energy Production (PJ)", "type": "quantitative" },
             "text": {
-              "value": "Household electricity use"
+              "condition": {
+                "test": "datum['Year'] === '2022' && datum['Renewable sources'] === 'Household electricity use'",
+                "value": "Household electricity use"
+              }
             },
             "color": { "value": "#4682B4" }
           }

@@ -7,6 +7,7 @@
     "title":{
       "font":"Poppins",
       "orient":"top",
+      "anchor":"middle",
       "offset":-40,
       "fontSize":20
     },
@@ -18,7 +19,7 @@
       "titleFont": "Poppins",
       "labelFont":"Poppins",
       "orient": "right",
-      "offset":20
+      "offset":35
     }
   },
   "params": [
