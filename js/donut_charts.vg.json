@@ -1,9 +1,64 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "data": "data/state_summary(2022).csv",
-    "mark": {"type": "arc", "innerRadius": 50},
+    "data": {
+      "url": "https://raw.githubusercontent.com/JannaKung/FIT-3179-Assignment-2/refs/heads/main/data/state_summary(2022).csv",
+      "format": { "type": "csv" }
+    },
+    "layer": [
+      {
+        "mark": {
+          "type": "arc",
+          "innerRadius": 40,
+          "stroke": "#fff",
+          "strokeWidth": 2
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "middle",
+          "radiusOffset": 50,
+          "fontSize": 12,
+          "fontWeight": "bold"
+        },
+        "encoding": {
+          "text": {
+            "field": "Total Non-Renewable Generation (GWh)",
+            "type": "quantitative",
+            "format": ",.1f"
+          },
+
+          "theta": {
+            "field": "Total Non-Renewable Generation (GWh)",
+            "type": "quantitative",
+            "stack": true
+          }
+        }
+      }
+    ],
     "encoding": {
-      "theta": {"field": "Total Non-Renewable Generation (GWh)", "type": "quantitative"},
-      "color": {"field": "States", "type": "nominal"}
+      "theta": {
+        "field": "Total Non-Renewable Generation (GWh)",
+        "type": "quantitative",
+        "stack": true
+      },
+      "radius": {
+        "field": "Total Non-Renewable Generation (GWh)",
+        "scale": { "type": "sqrt", "zero": true, "rangeMin": 150 }
+      },
+      "color": {
+        "field": "States",
+        "type": "nominal",
+        "legend": { "title": "States", "orient": "right","offset":100}
+      },
+      "tooltip": [
+        { "field": "States", "title": "State" },
+        {
+          "field": "Total Non-Renewable Generation (GWh)",
+          "title": "Generation (GWh)",
+          "format": ",.1f"
+        }
+      ]
     }
   }
