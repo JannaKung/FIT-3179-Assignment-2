@@ -86,7 +86,7 @@
     </div>
     <!-- end pure grid group -->
 
-        <!-- map container -->
+        <!-- supply container -->
         <div class="pure-g">
           <div class="pure-u-1-1">
             <div class="vis-container">
@@ -99,10 +99,25 @@
           </div>
         </div>
 
+        <!-- donut container -->
+        <div class="pure-g">
+          <div class="pure-u-1-1">
+            <div class="vis-container">
+              <div id="donut_graph"></div>
+            </div>
+            <p>Lorem ipsum dolor sit amet, eum dicta saperet instructior no, at sensibus complectitur per,
+              usu hinc augue ei. Ad amet homero evertitur mei. Posse quidam convenire ei mel. Quando regione eu eam, tota latine vocibus mei ad.
+              His ad hendrerit voluptatibus, mel et liber mollis, illud dicant scaevola pro ei. Ex pri quod dolore percipit.
+              Sea ne appetere imperdiet adipiscing.</p>
+          </div>
+        </div>
+
+
     <script type="text/javascript">
       var choropleth_map = "js/choropleth_map.vg.json";
       var concat_graph = "js/concat_industries_final.vg.json";
       var supply_graph = "js/sources_combined.vg.json"
+      var donut_graph = "js/donut_combined.vg.json"
 
       // Embed the choropleth map
       vegaEmbed('#map', choropleth_map, { "actions": false }).then(function (result) {
@@ -119,10 +134,17 @@
         });
       }).catch(console.error);
 
-         // Embed the choropleth map
-         vegaEmbed('#supply_graph', supply_graph, { "actions": false }).then(function (result) {
+         // Embed the supply
+      vegaEmbed('#supply_graph', supply_graph, { "actions": false }).then(function (result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
+
+        // Embed the donut
+      vegaEmbed('#donut_graph', donut_graph, { "actions": false }).then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+
+
 
     </script>
 

@@ -1,0 +1,103 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Top 5 State-Level Energy Consumption for Renewable vs. Non-Renewable",
+    "config": {
+      "title": {
+        "font": "Poppins",
+        "fontSize": 20,
+        "align": "center",
+        "anchor":"middle",
+        "offset": 15
+      },
+      "legend": {
+        "titleFont": "Poppins",
+        "labelFont": "Poppins"
+      }
+    },
+    "data": {
+      "url": "https://raw.githubusercontent.com/JannaKung/FIT-3179-Assignment-2/refs/heads/main/data/state_summary(2022).csv",
+      "format": { "type": "csv" }
+    },
+    "hconcat": [
+      {
+        "width": 400,
+        "height": 250,
+        "layer": [
+          {
+            "mark": { "type": "arc", "innerRadius": 10, "stroke": "#fff" }
+          },
+          {
+            "mark": {
+              "type": "text",
+              "radiusOffset": 30,
+              "fontSize": 12,
+              "fontWeight": "bold",
+              "font": "Poppins"
+            },
+            "encoding": {
+              "text": {
+                "field": "Total Non-Renewable Generation (GWh)",
+                "type": "quantitative",
+                "format": ",.1f"
+              }
+            }
+          }
+        ],
+        "encoding": {
+          "theta": {
+            "field": "Total Non-Renewable Generation (GWh)",
+            "type": "quantitative",
+            "stack": true
+          },
+          "radius": {
+            "field": "Total Non-Renewable Generation (GWh)",
+            "scale": { "type": "sqrt", "zero": true, "rangeMin": 150 }
+          },
+          "color": {
+            "field": "States",
+            "type": "nominal"
+          }
+        }
+      },
+      {
+        "width": 400,
+        "height": 250,
+        "layer": [
+          {
+            "mark": { "type": "arc", "innerRadius": 15, "stroke": "#fff" }
+          },
+          {
+            "mark": {
+              "type": "text",
+              "radiusOffset": 30,
+              "fontSize": 12,
+              "fontWeight": "bold",
+              "font": "Poppins"
+            },
+            "encoding": {
+              "text": {
+                "field": "Total Renewable Generation (GWh)",
+                "type": "quantitative",
+                "format": ",.1f"
+              }
+            }
+          }
+        ],
+        "encoding": {
+          "theta": {
+            "field": "Total Renewable Generation (GWh)",
+            "type": "quantitative",
+            "stack": true
+          },
+          "radius": {
+            "field": "Total Renewable Generation (GWh)",
+            "scale": { "type": "sqrt", "zero": true, "rangeMin": 150 }
+          },
+          "color": {
+            "field": "States",
+            "type": "nominal"
+          }
+        }
+      }
+    ]
+  }

@@ -138,6 +138,10 @@
             "x": { "field": "Year", "type": "ordinal" },
             "y": { "field": "Energy Production (PJ)", "type": "quantitative" },
             "detail": { "field": "Renewable sources" },
+            "tooltip":[
+              {"field":"Year", "title": "Year"},
+              {"field":"Energy Production (PJ)", "type": "quantitative", "title": "Energy Production (PJ)"},
+              { "field": "Renewable sources", "title": "Source" }],
             "color": {
               "condition": {
                 "test": "datum['Renewable sources'] == 'Household electricity use'",
