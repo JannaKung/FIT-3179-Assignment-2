@@ -25,6 +25,13 @@
         "url": "https://raw.githubusercontent.com/JannaKung/FIT-3179-Assignment-2/refs/heads/main/data/Non-renewable_production.csv",
         "format": { "type": "csv" }
       },
+      "selection": {
+        "year_highlight": {
+          "type": "multi",
+          "fields": ["Year"],
+          "bind": "legend"
+        }
+      },
       "mark": "bar",
       "encoding": {
         "x": {
@@ -40,10 +47,7 @@
           "type": "quantitative",
           "axis": { "title": "Energy Production (PJ)" }
         },
-        "xOffset": {
-          "field": "Year",
-          "type": "nominal"
-        },
+        "xOffset": { "field": "Year", "type": "nominal" },
         "color": {
           "field": "Year",
           "type": "nominal",
@@ -51,6 +55,10 @@
             "domain": ["2011", "2022"],
             "range": ["#F6EACB", "#D1E9F6"]
           }
+        },
+        "opacity": {
+          "condition": { "selection": "year_highlight", "value": 1 },
+          "value": 0.2
         },
         "tooltip": [
           { "field": "Year", "title": "Year" },
@@ -66,6 +74,13 @@
         "url": "https://raw.githubusercontent.com/JannaKung/FIT-3179-Assignment-2/refs/heads/main/data/Renewable%20energy%20sources.csv",
         "format": { "type": "csv" }
       },
+      "selection": {
+        "Renewable_highlight": {
+          "type": "multi",
+          "fields": ["Renewable sources"],
+          "bind": "legend"
+        }
+      },
       "layer": [
         {
           "mark": {
@@ -75,12 +90,24 @@
             "size": 2
           },
           "encoding": {
-            "x": { "field": "Year", "type": "ordinal" },
+            "x": {
+              "field": "Year",
+              "type": "ordinal",
+              "axis": {
+                "labelExpr": "datum.value % 2 === 0 ? '' : datum.value",
+                "labelAngle": 0,
+                "labelAlign": "center",
+                "grid": true,
+                "ticks": true,
+                "tickCount": 10,
+                "tickMinStep": 1
+              }
+            },
             "y": { "field": "Energy Production (PJ)", "type": "quantitative" },
             "color": {
               "field": "Renewable sources",
               "type": "nominal",
-              "legend": {"title": "Renewable sources"},
+              "legend": { "title": "Renewable sources" },
               "scale": {
                 "domain": ["Hydro energy", "Solar energy", "Wind energy"],
                 "range": ["#91bfdb", "#fee08b", "#fdae61"]
@@ -130,14 +157,13 @@
             "fontWeight": "bold"
           },
           "encoding": {
-            "x": { "field": "Year", "type": "ordinal","axis":{
-              "labelAngle":0,
-              "labelAlign": "center",
-              "grid": true,
-              "labels":false,
-              "ticks": true,
-              "tickMinStep": 1
-            }},
+            "x": {
+              "field": "Year",
+              "type": "ordinal",
+              "scale": {
+                "domain": ["2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022"]
+              }
+            },
             "y": { "field": "Energy Production (PJ)", "type": "quantitative" },
             "text": {
               "condition": {
