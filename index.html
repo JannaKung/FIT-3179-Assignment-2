@@ -99,25 +99,36 @@
           </div>
         </div>
 
-        <!-- donut container -->
-        <div class="pure-g">
-          <div class="pure-u-1-1">
-            <div class="vis-container">
-              <div id="donut_graph"></div>
-            </div>
-            <p>Lorem ipsum dolor sit amet, eum dicta saperet instructior no, at sensibus complectitur per,
-              usu hinc augue ei. Ad amet homero evertitur mei. Posse quidam convenire ei mel. Quando regione eu eam, tota latine vocibus mei ad.
-              His ad hendrerit voluptatibus, mel et liber mollis, illud dicant scaevola pro ei. Ex pri quod dolore percipit.
-              Sea ne appetere imperdiet adipiscing.</p>
+       <!-- Donut Charts Section -->
+       <div class="pure-g">
+        <div class="pure-u-1-1">
+          <div class="vis-container">
+            <h2>Top 5 State-Level Energy Consumption for Renewable vs. Non-Renewable</h2>
+            <div id="donut_graph_nr"></div>
+            <div id="donut_graph_r"></div>
+            <div id="dropdown">
+              <label for="state_selection">State: </label>
+              <select id="state_selection">
+                  <option value="NSW">NSW</option>
+                  <option value="QLD">QLD</option>
+                  <option value="SA">SA</option>
+                  <option value="VIC">VIC</option>
+                  <option value="WA">WA</option>
+                  <option value="All" selected>All</option>
+              </select>
+              </div>
+          </div>
           </div>
         </div>
+      </div>
 
 
     <script type="text/javascript">
       var choropleth_map = "js/choropleth_map.vg.json";
       var concat_graph = "js/concat_industries_final.vg.json";
-      var supply_graph = "js/sources_combined.vg.json"
-      var donut_graph = "js/donut_combined.vg.json"
+      var supply_graph = "js/sources_combined.vg.json";
+      var donut_graph_nr = "js/donut_non_renewable.vg.json";
+      var donut_graph_r = "js/donut_renewable.vg.json";
 
       // Embed the choropleth map
       vegaEmbed('#map', choropleth_map, { "actions": false }).then(function (result) {
@@ -138,11 +149,39 @@
       vegaEmbed('#supply_graph', supply_graph, { "actions": false }).then(function (result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
+      function updateDonutCharts(selectedState) {
+        nonRenewableView.signal("state_selection", selectedState).run();
+        renewableView.signal("state_selection", selectedState).run();
+      }
 
-        // Embed the donut
-      vegaEmbed('#donut_graph', donut_graph, { "actions": false }).then(function (result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-      }).catch(console.error);
+    // Function to update the chart based on state selection
+function updateDonutCharts(view, state) {
+  view.signal('state_selection', state).run();
+}
+
+// Embed Non-Renewable Donut Chart
+vegaEmbed('#donut_graph_nr', 'path/to/donut_non_renewable.vg.json', { actions: false })
+  .then(({ view }) => {
+    const stateSelector = document.getElementById('state_selection');
+    stateSelector.addEventListener('change', (event) => {
+      const selectedState = event.target.value;
+      updateDonutCharts(view, selectedState);
+    });
+  })
+  .catch(console.error);
+
+// Embed Renewable Donut Chart
+vegaEmbed('#donut_graph_r', 'path/to/donut_renewable.vg.json', { actions: false })
+  .then(({ view }) => {
+    const stateSelector = document.getElementById('state_selection');
+    stateSelector.addEventListener('change', (event) => {
+      const selectedState = event.target.value;
+      updateDonutCharts(view, selectedState);
+    });
+  })
+  .catch(console.error);
+
+    </script>
 
 
 

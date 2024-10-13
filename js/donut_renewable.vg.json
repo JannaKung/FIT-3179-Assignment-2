@@ -1,9 +1,8 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title":"renewable",
-    "width": 300,
-    "height": 250,
-    "config": {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 300,
+  "height": 250,
+  "config": {
     "title": {
       "font": "Poppins",
       "fontSize": 20,
@@ -14,67 +13,76 @@
       "titleFont": "Poppins",
       "labelFont": "Poppins"
     }
-    },
-    "data": {
-      "url": "https://raw.githubusercontent.com/JannaKung/FIT-3179-Assignment-2/refs/heads/main/data/state_summary(2022).csv",
-      "format": { "type": "csv" }
-    },
-    "layer": [
-      {
-        "mark": {
-          "type": "arc",
-          "innerRadius": 40,
-          "stroke": "#fff",
-          "strokeWidth": 2
-        }
-      },
-      {
-        "mark": {
-          "type": "text",
-          "align": "left",
-          "baseline": "middle",
-          "radiusOffset": 50,
-          "fontSize": 12,
-          "fontWeight": "bold",
-           "font": "Poppins"
-        },
-        "encoding": {
-          "text": {
-            "field": "Total Renewable Generation (GWh)",
-            "type": "quantitative",
-            "format": ",.1f"
-          },
-
-          "theta": {
-            "field": "Total Renewable Generation (GWh)",
-            "type": "quantitative",
-            "stack": true
-          }
-        }
+  },
+  "params": [
+    {
+      "name": "state_selection",
+      "value": "All"
+    }
+  ],
+  "data": {
+    "url": "https://raw.githubusercontent.com/JannaKung/FIT-3179-Assignment-2/refs/heads/main/data/state_summary(2022).csv",
+    "format": { "type": "csv" }
+  },
+  "transform": [
+    {
+      "filter": "state_selection === 'All' || datum.States === state_selection"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "arc",
+        "innerRadius": 40,
+        "stroke": "#fff",
+        "strokeWidth": 2
       }
-    ],
-    "encoding": {
-      "theta": {
-        "field": "Total Renewable Generation (GWh)",
-        "type": "quantitative",
-        "stack": true
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "radiusOffset": 50,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "font": "Poppins"
       },
-      "radius": {
-        "field": "Total Renewable Generation (GWh)",
-        "scale": { "type": "sqrt", "zero": true, "rangeMin": 200 }
-      },
-      "color": {
-        "field": "States",
-        "type": "nominal",
-        "legend": { "title": "States", "orient": "right","offset":100}
-      },
-      "tooltip": [
-        { "field": "States", "title": "State" },
-        {
+      "encoding": {
+        "text": {
           "field": "Total Renewable Generation (GWh)",
-          "title": "Generation (GWh)",
+          "type": "quantitative",
           "format": ",.1f"
         }
-      ]
+      }
     }
+  ],
+  "encoding": {
+    "theta": {
+      "field": "Total Renewable Generation (GWh)",
+      "type": "quantitative",
+      "stack": true
+    },
+    "radius": {
+      "field": "Total Renewable Generation (GWh)",
+      "scale": { "type": "sqrt", "zero": true, "rangeMin": 200 }
+    },
+    "color": {
+      "field": "States",
+      "type": "nominal",
+      "scale": {
+        "domain": ["NSW", "QLD", "SA", "VIC", "WA"],
+        "range": ["#4575b4", "#91bfdb", "#fee08b", "#fdae61", "#d73027"]
+      },
+      "legend": { "title": "States", "orient": "right", "offset": 50 }
+    },
+    "tooltip": [
+      { "field": "States", "title": "State" },
+      {
+        "field": "Total Renewable Generation (GWh)",
+        "title": "Generation (GWh)",
+        "format": ",.1f"
+      }
+    ]
   }
+}

@@ -18,6 +18,7 @@ h2 {
   font-style: normal;
   text-align: center;
   margin-bottom: 10px;
+  font-size: 20px;
 }
 
 body {
@@ -86,4 +87,25 @@ body, html {
   display: flex;
   align-items: start; /* Align the two columns to the top */
   gap: 40px; /* Increase the gap between columns */
+}
+
+.donut-container {
+  display: flex;               /* Use Flexbox on the parent container */
+  justify-content: space-around; /* Evenly space the charts */
+  align-items: center;          /* Align the charts vertically */
+  padding: 20px;                /* Add some padding around the container */
+  gap: 50px;                    /* Add space between the two charts */
+}
+
+.donut-chart {
+  flex: 1;                     /* Allow the charts to grow and align flexibly */
+  max-width: 400px;             /* Prevent charts from growing too large */
+  height: 300px;                /* Set consistent height */
+}
+
+#donut_graph_nr, #donut_graph_r {
+  margin-right: 75px; /* Add space between the two divs */
+  justify-content: space-around; /* Evenly space the charts */
+  align-items: center; /* Align the charts vertically */
+  flex: 1;
 }
