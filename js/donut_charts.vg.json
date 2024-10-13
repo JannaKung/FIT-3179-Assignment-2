@@ -1,9 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "data": {
-        "url": "https://raw.githubusercontent.com/JannaKung/FIT-3179-Assignment-2/refs/heads/main/data/state_summary(2022).csv",
-        "format": { "type": "csv" }
-      },
+    "data": "data/state_summary(2022).csv",
     "mark": {"type": "arc", "innerRadius": 50},
     "encoding": {
       "theta": {"field": "Total Non-Renewable Generation (GWh)", "type": "quantitative"},
