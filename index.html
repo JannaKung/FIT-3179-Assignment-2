@@ -149,40 +149,33 @@
       vegaEmbed('#supply_graph', supply_graph, { "actions": false }).then(function (result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
-      function updateDonutCharts(selectedState) {
-        nonRenewableView.signal("state_selection", selectedState).run();
-        renewableView.signal("state_selection", selectedState).run();
-      }
 
-    // Function to update the chart based on state selection
-function updateDonutCharts(view, state) {
-  view.signal('state_selection', state).run();
+      // Function to update donut charts when state selection changes
+function updateDonutChart(view, selectedState) {
+  view.signal("state_selection", selectedState).run();
 }
 
-// Embed Non-Renewable Donut Chart
-vegaEmbed('#donut_graph_nr', 'path/to/donut_non_renewable.vg.json', { actions: false })
-  .then(({ view }) => {
-    const stateSelector = document.getElementById('state_selection');
-    stateSelector.addEventListener('change', (event) => {
-      const selectedState = event.target.value;
-      updateDonutCharts(view, selectedState);
-    });
-  })
-  .catch(console.error);
+// Embed non-renewable donut chart
+vegaEmbed("#donut_graph_nr", donut_graph_nr, { actions: false }).then(({ view }) => {
+  const stateDropdownNr = document.getElementById("state_selection_nr");
 
-// Embed Renewable Donut Chart
-vegaEmbed('#donut_graph_r', 'path/to/donut_renewable.vg.json', { actions: false })
-  .then(({ view }) => {
-    const stateSelector = document.getElementById('state_selection');
-    stateSelector.addEventListener('change', (event) => {
-      const selectedState = event.target.value;
-      updateDonutCharts(view, selectedState);
-    });
-  })
-  .catch(console.error);
+  // Add event listener for dropdown change
+  stateDropdownNr.addEventListener("change", (event) => {
+    const selectedState = event.target.value;
+    updateDonutChart(view, selectedState);
+  });
+}).catch(console.error);
 
-    </script>
+// Embed renewable donut chart
+vegaEmbed("#donut_graph_r", donut_graph_r, { actions: false }).then(({ view }) => {
+  const stateDropdownR = document.getElementById("state_selection_r");
 
+  // Add event listener for dropdown change
+  stateDropdownR.addEventListener("change", (event) => {
+    const selectedState = event.target.value;
+    updateDonutChart(view, selectedState);
+  });
+}).catch(console.error);
 
 
     </script>

@@ -1,0 +1,86 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "config": {
+    "title": {
+      "font": "Poppins",
+      "fontSize": 20,
+      "anchor": "middle",
+      "offset": 15
+    },
+    "legend": {
+      "titleFont": "Poppins",
+      "labelFont": "Poppins"
+    }
+  },
+  "hconcat": [
+    {
+      "width": 300,
+      "height": 250,
+      "data": {
+        "url": "https://raw.githubusercontent.com/JannaKung/FIT-3179-Assignment-2/refs/heads/main/data/state_summary(2022).csv",
+        "format": { "type": "csv" }
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "arc",
+            "innerRadius": 90,
+            "stroke": "#fff",
+            "strokeWidth": 2
+          },
+          "encoding": {
+            "theta": {
+              "field": "Total Non-Renewable Generation (GWh)",
+              "type": "quantitative",
+              "stack": true
+            },
+            "color": {
+              "field": "States",
+              "type": "nominal",
+              "legend": {
+                "title": "States",
+                "orient": "right",
+                "offset": 100
+              }
+            },
+            "radius": {
+              "field": "Total Non-Renewable Generation (GWh)",
+              "scale": { "type": "sqrt", "zero": true }
+            },
+            "tooltip": [
+              { "field": "States", "title": "State" },
+              {
+                "field": "Total Non-Renewable Generation (GWh)",
+                "title": "Generation (GWh)",
+                "format": ",.1f"
+              }
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "radiusOffset": 50,
+            "fontSize": 12,
+            "fontWeight": "bold",
+            "font": "Poppins"
+          },
+          "encoding": {
+            "text": {
+              "field": "Total Non-Renewable Generation (GWh)",
+              "type": "quantitative",
+              "format": ",.1f"
+            },
+            "theta": {
+              "field": "Total Non-Renewable Generation (GWh)",
+              "type": "quantitative",
+              "stack": true
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
