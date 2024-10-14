@@ -62,7 +62,7 @@
         "domain": ["NSW", "QLD", "SA", "VIC", "WA"],
         "range": ["#4575b4", "#91bfdb", "#fee08b", "#fdae61", "#d73027"]
       },
-      "legend": null 
+      "legend": null
     },
     "tooltip": [
       { "field": "States", "title": "State" },

@@ -150,33 +150,41 @@
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
 
-      // Function to update donut charts when state selection changes
-function updateDonutChart(view, selectedState) {
-  view.signal("state_selection", selectedState).run();
-}
+      // Function to update both charts with the selected state
+      function updateDonutCharts(selectedState) {
+        donutViewNR.signal('state_selection', selectedState).run(); // Non-Renewable chart
+        donutViewR.signal('state_selection', selectedState).run();  // Renewable chart
+      }
 
-// Embed non-renewable donut chart
-vegaEmbed("#donut_graph_nr", donut_graph_nr, { actions: false }).then(({ view }) => {
-  const stateDropdownNr = document.getElementById("state_selection_nr");
+      var donutViewNR, donutViewR; // Variables to store the chart views
 
-  // Add event listener for dropdown change
-  stateDropdownNr.addEventListener("change", (event) => {
-    const selectedState = event.target.value;
-    updateDonutChart(view, selectedState);
-  });
-}).catch(console.error);
+      // Embed Non-Renewable Donut Chart
+      vegaEmbed('#donut_graph_nr', donut_graph_nr, { actions: false })
+        .then(({ view }) => {
+          donutViewNR = view; // Store the non-renewable chart view
 
-// Embed renewable donut chart
-vegaEmbed("#donut_graph_r", donut_graph_r, { actions: false }).then(({ view }) => {
-  const stateDropdownR = document.getElementById("state_selection_r");
+          // Set initial state selection
+          const stateDropdown = document.getElementById('state_selection');
+          stateDropdown.addEventListener('change', (event) => {
+            const selectedState = event.target.value;
+            updateDonutCharts(selectedState); // Update both charts when state changes
+          });
+        })
+        .catch(console.error);
 
-  // Add event listener for dropdown change
-  stateDropdownR.addEventListener("change", (event) => {
-    const selectedState = event.target.value;
-    updateDonutChart(view, selectedState);
-  });
-}).catch(console.error);
+      // Embed Renewable Donut Chart
+      vegaEmbed('#donut_graph_r', donut_graph_r, { actions: false })
+        .then(({ view }) => {
+          donutViewR = view; // Store the renewable chart view
 
+          // Ensure dropdown interaction also affects this chart
+          const stateDropdown = document.getElementById('state_selection');
+          stateDropdown.addEventListener('change', (event) => {
+            const selectedState = event.target.value;
+            updateDonutCharts(selectedState); // Update both charts when state changes
+          });
+        })
+        .catch(console.error);
 
     </script>
 
