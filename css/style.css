@@ -17,8 +17,8 @@ h2 {
   font-weight: 600;
   font-style: normal;
   text-align: center;
-  margin-bottom: 10px;
   font-size: 20px;
+  margin-bottom: 0;
 }
 
 body {
@@ -63,6 +63,16 @@ h1 {
 
 .description-left {
   padding-right: 20px;
+}
+
+.note {
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-top: 0;
 }
 
 
@@ -117,11 +127,12 @@ h1 {
 }
 
 /* Styling for individual text sections */
-.source-container div {
+.source-text {
   font-family: 'Poppins', sans-serif;
   font-size: 12px;
   color: #333;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
+  font-weight: bold;
 }
 
 
@@ -163,4 +174,8 @@ body, html {
   justify-content: space-around; /* Evenly space the charts */
   align-items: center; /* Align the charts vertically */
   flex: 1;
+}
+
+b, strong {
+  font-weight: bold !important;
 }
