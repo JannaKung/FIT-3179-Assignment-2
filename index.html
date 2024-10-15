@@ -35,11 +35,10 @@
         <h1>Australia's Energy Journey: Balancing Non-Renewable and Renewable Sources</h1>
         <div class="container">
           <img src="image/nature.jpg">
-          <div class="text-box">
-        <p>Lorem ipsum dolor sit amet, eum dicta saperet instructior no, at sensibus complectitur per,
-          usu hinc augue ei. Ad amet homero evertitur mei. Posse quidam convenire ei mel. Quando regione eu eam, tota latine vocibus mei ad.
-          His ad hendrerit voluptatibus, mel et liber mollis, illud dicant scaevola pro ei. Ex pri quod dolore percipit.
-          Sea ne appetere imperdiet adipiscing.</p>
+          <div class="intro-box">
+           <p>Explore Australia's journey toward transitioning to a sustainable future.
+             This page will cover energy per capita, energy consumption across sectors and the role of renewable and non-renewable sources.
+             Dive deeper into state consumptions and see how different regions embrace sustainable practices !</p>
           </div>
           <img src="image/wind.jpg">
           </div>
@@ -54,11 +53,17 @@
           <div id="map"></div>
           <div class="container">
             <div class="text-box">
-              <p>Lorem ipsum dolor sit amet, eum dicta saperet instructior no, at sensibus complectitur per, usu hinc augue ei. Ad amet homero evertitur mei. Posse quidam convenire ei mel.</p>
+              <p>This map visualizes Australia's per capita energy generation compared to other countries globally from 2011 to 2022. It
+                 allows us to see how factors like land size can affect electricity generated. The color gradient reflects the amount of electricity
+                 generated per person annually, measured in kilowatt-hours (kWh).Darker red indicates higher per capita generation,
+                 while blue indicates lower values.</p>
             </div>
 
             <div class="text-box">
-              <p>Quando regione eu eam, tota latine vocibus mei ad. His ad hendrerit voluptatibus, mel et liber mollis, illud dicant scaevola pro ei. Ex pri quod dolore percipit. Sea ne appetere imperdiet adipiscing.</p>
+              <p>We can see that energy generation per capita is always changing however, from 2011 to 2012 Australia has always been among the highest.
+                This is because Australia has an abundant of natural resources, energy exports and large industrial demand. For example compared to China,
+                Australia has a smaller population which means individuals have more access to electricity, resulting in higher per capita.
+              </p>
             </div>
           </div>
       </div>
@@ -89,11 +94,17 @@
           </div>
           <div class="container">
             <div class="text-box">
-              <p>Lorem ipsum dolor sit amet, eum dicta saperet instructior no, at sensibus complectitur per, usu hinc augue ei. Ad amet homero evertitur mei. Posse quidam convenire ei mel.</p>
+              <p>The line graph tracks Australia's energy consumption trend from 2011 to 2022, seperated into total
+                 energy use, exports, industry and household consumption. It highlights changes over time, showing
+                 fluctuations in overall usage and energy exports but industry and household use remains stable throughout.
+              </p>
             </div>
 
             <div class="text-box">
-              <p>Quando regione eu eam, tota latine vocibus mei ad. His ad hendrerit voluptatibus, mel et liber mollis, illud dicant scaevola pro ei. Ex pri quod dolore percipit. Sea ne appetere imperdiet adipiscing.</p>
+              <p>The sector insight chart provides a further breakdown of energy consumption by individual sectors
+                for the selected year. Household energy use is a close second to mining, which reflects Australian's
+                living standards and residential energy needs. Mining's energy consumption comes from resource extraction and processing.
+              </p>
             </div>
         </div>
       </div>
@@ -107,7 +118,9 @@
               <div id="supply_graph"></div>
             <div class="container">
               <div class="text-box">
-                <p>Lorem ipsum dolor sit amet, eum dicta saperet instructior no, at sensibus complectitur per, usu hinc augue ei. Ad amet homero evertitur mei. Posse quidam convenire ei mel.</p>
+                <p>The bar chart shows mixed trends in non-renewable energy production. Black coal usage increased in 2022 compared to 2011,indicating its ongoing role in energy production.
+                  However, brown coal has declined, reflecting efforts to reduce reliance on less efficient fuels.While crude oil production
+                  remains minimal, natural gas continues to be a key contributor to Australia's energy mix.</p>
               </div>
 
               <div class="text-box">
@@ -120,7 +133,7 @@
        <div class="pure-g">
         <div class="pure-u-1-1">
           <div class="vis-container">
-            <h2>Exploring Non-Renewable vs. Renewable Energy in the 5 Largest States</h2>
+            <h2>Exploring Non-Renewable vs. Renewable Energy in the 5 Largest States(2022)</h2>
             <div id="donut_graph_nr"></div>
             <div id="donut_graph_r"></div>
             <div id="dropdown">
@@ -180,13 +193,13 @@
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
 
+      var donutViewNR, donutViewR; // Variables to store the chart views
+
       // Function to update both charts with the selected state
       function updateDonutCharts(selectedState) {
         donutViewNR.signal('state_selection', selectedState).run(); // Non-Renewable chart
         donutViewR.signal('state_selection', selectedState).run();  // Renewable chart
       }
-
-      var donutViewNR, donutViewR; // Variables to store the chart views
 
       // Embed Non-Renewable Donut Chart
       vegaEmbed('#donut_graph_nr', donut_graph_nr, { actions: false })

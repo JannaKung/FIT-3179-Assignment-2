@@ -1,6 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Australia's Per Capita Energy Generation vs. Global (2011-2022)",
+  "title":{"text": "Australia's Per Capita Energy Generation vs. Global (2011-2022)",
+  "subtitle":["Note: Adjust the slider to see changes across the years"]
+},
   "width": 750,
   "height": 500,
   "config": {
@@ -9,7 +11,9 @@
       "orient":"top",
       "anchor":"middle",
       "offset":-40,
-      "fontSize":20
+      "fontSize":20,
+      "subtitleFont":"Poppins",
+      "subtitleFontSize":14
     },
     "axis": {
       "titleFont": "Poppins",
@@ -127,7 +131,7 @@
         "text": {"field": "properties.NAME", "type": "nominal"},
         "opacity": {
           "condition": {
-            "test": "datum['properties.NAME'] == 'Australia'",
+            "test": "datum['properties.NAME'] == 'Australia' || datum['properties.NAME'] == 'China'",
             "value": 1
           },
           "value": 0

@@ -1,12 +1,15 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Tracking Australia's Energy Use with Sector Insights (2011-2022)",
+  "title": {"text":"Tracking Australia's Energy Use with Sector Insights (2011-2022)",
+            "subtitle":["Note: Use the dropdown to change the year for sector insights"]},
   "config": {
     "title": {
       "font": "Poppins",
       "fontSize": 20,
       "anchor": "middle",
-      "offset": 15
+      "offset": 15,
+      "subtitleFont":"Poppins",
+      "subtitleFontSize":14
     },
     "axis": {
       "titleFont": "Poppins",

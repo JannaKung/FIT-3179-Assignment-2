@@ -1,12 +1,16 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Australia's Energy Shift: Comparing Non-Renewables and Renewables",
+  "title": {"text": "Australia's Energy Shift: Comparing Non-Renewables and Renewables (2011-2022)",
+            "subtitle" : ["Note: Click on the legend to isolate the years"]
+},
   "config": {
     "title": {
       "font": "Poppins",
       "fontSize": 20,
       "anchor": "middle",
-      "offset": 15
+      "offset": 15,
+      "subtitleFont":"Poppins",
+      "subtitleFontSize":14
     },
     "axis": {
       "titleFont": "Poppins",
